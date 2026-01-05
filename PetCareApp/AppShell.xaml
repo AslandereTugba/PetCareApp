@@ -6,9 +6,12 @@
     xmlns:local="clr-namespace:PetCareApp"
     Title="PetCareApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Home">
+        <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate local:MainPage}" Route="main" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Pets">
+        <ShellContent Title="Pets" ContentTemplate="{DataTemplate local:PetListPage}" Route="pets" />
+    </FlyoutItem>
 
 </Shell>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetCareApp.Views.AddPetPage"
+             Title="Add Pet">
+    <StackLayout Padding="20">
+        <Label Text="Add a New Pet" 
+               FontSize="20" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center" 
+               Margin="0,0,0,20"/>
+        <Label Text="Name:" />
+        <Entry x:Name="nameEntry" Placeholder="Pet name" />
+        <Label Text="Type:" Margin="0,10,0,0"/>
+        <Entry x:Name="typeEntry" Placeholder="e.g., Dog, Cat, etc." />
+        <Label Text="Birth Date:" Margin="0,10,0,0"/>
+        <DatePicker x:Name="birthDatePicker" MaximumDate="{x:Static sys:DateTime.Now}" />
+        <!-- Namespace for sys:DateTime above: xmlns:sys="clr-namespace:System;assembly=System.Runtime" -->
+        <Button Text="Save Pet" Margin="0,20,0,0" Clicked="OnSaveClicked" />
+    </StackLayout>
+</ContentPage>
