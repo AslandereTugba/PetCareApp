@@ -7,11 +7,11 @@ namespace PetCareApp;
 
 public partial class App : Application
 {
-    public static SQLiteConnection Db { get; private set; }
-    public static Repositories.PetRepository PetRepo { get; private set; }
-    public static Repositories.CareTaskRepository TaskRepo { get; private set; }
-    public static Repositories.CareLogRepository LogRepo { get; private set; }
-    public static Repositories.VetVisitRepository VetRepo { get; private set; }
+    public static SQLite.SQLiteConnection Db { get; private set; } = null!;
+    public static Repositories.PetRepository PetRepo { get; private set; } = null!;
+    public static Repositories.CareTaskRepository TaskRepo { get; private set; } = null!;
+    public static Repositories.CareLogRepository LogRepo { get; private set; } = null!;
+    public static Repositories.VetVisitRepository VetRepo { get; private set; } = null!;
     public App()
     {
         InitializeComponent();

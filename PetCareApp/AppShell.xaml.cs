@@ -1,11 +1,12 @@
-﻿namespace PetCareApp
+﻿using PetCareApp.Views;
+
+namespace PetCareApp;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-            Routing.RegisterRoute(nameof(AddPetPage), typeof(PetCareApp.Views.AddPetPage));
-        }
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(AddPetPage), typeof(AddPetPage));
     }
 }

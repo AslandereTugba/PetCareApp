@@ -7,8 +7,8 @@ public partial class AddPetPage : ContentPage
     public AddPetPage()
     {
         InitializeComponent();
-        // Set default date to today for the birth date picker
         birthDatePicker.Date = DateTime.Today;
+        birthDatePicker.MaximumDate = DateTime.Today; // ? ekle
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
@@ -23,16 +23,15 @@ public partial class AddPetPage : ContentPage
             return;
         }
 
-        // Create and save new Pet
         Pet newPet = new Pet
         {
             Name = name,
             Type = type,
             BirthDate = birthDate
         };
+
         App.PetRepo.SavePet(newPet);
 
-        // Go back to the pet list
         await Shell.Current.GoToAsync("..");
     }
 }

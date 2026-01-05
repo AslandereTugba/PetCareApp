@@ -4,14 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PetCareApp"
+    xmlns:views="clr-namespace:PetCareApp.Views"
     Title="PetCareApp">
 
     <FlyoutItem Title="Home">
-        <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate local:MainPage}" Route="main" />
+        <ShellContent Title="Dashboard"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="main" />
     </FlyoutItem>
 
     <FlyoutItem Title="Pets">
-        <ShellContent Title="Pets" ContentTemplate="{DataTemplate local:PetListPage}" Route="pets" />
+        <ShellContent Title="Pets"
+                      ContentTemplate="{DataTemplate views:PetListPage}"
+                      Route="pets" />
     </FlyoutItem>
 
 </Shell>
