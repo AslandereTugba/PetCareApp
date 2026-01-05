@@ -8,7 +8,10 @@ namespace PetCareApp;
 public partial class App : Application
 {
     public static SQLiteConnection Db { get; private set; }
-
+    public static Repositories.PetRepository PetRepo { get; private set; }
+    public static Repositories.CareTaskRepository TaskRepo { get; private set; }
+    public static Repositories.CareLogRepository LogRepo { get; private set; }
+    public static Repositories.VetVisitRepository VetRepo { get; private set; }
     public App()
     {
         InitializeComponent();
@@ -25,6 +28,11 @@ public partial class App : Application
         Db.CreateTable<Models.CareTask>();
         Db.CreateTable<Models.CareLog>();
         Db.CreateTable<Models.VetVisit>();
+
+        PetRepo = new Repositories.PetRepository();
+        TaskRepo = new Repositories.CareTaskRepository();
+        LogRepo = new Repositories.CareLogRepository();
+        VetRepo = new Repositories.VetVisitRepository();
     }
 
     protected override Window CreateWindow(IActivationState? activationState)
