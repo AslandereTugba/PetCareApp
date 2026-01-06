@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
@@ -72,6 +72,9 @@
 	  <Compile Update="Views\AddTaskPage.xaml.cs">
 	    <DependentUpon>AddTaskPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\CareLogPage.xaml.cs">
+	    <DependentUpon>CareLogPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\VetVisitPage.xaml.cs">
 	    <DependentUpon>VetVisitPage.xaml</DependentUpon>
 	  </Compile>
@@ -88,6 +91,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddTaskPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CareLogPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\VetVisitPage.xaml">

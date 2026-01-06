@@ -1,4 +1,5 @@
-﻿using PetCareApp.Views;
+﻿using PetCareApp.Models;
+using PetCareApp.Views;
 
 namespace PetCareApp;
 
@@ -11,5 +12,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(PetDetailPage), typeof(PetDetailPage));
         Routing.RegisterRoute(nameof(AddTaskPage), typeof(AddTaskPage));
         Routing.RegisterRoute(nameof(VetVisitPage), typeof(VetVisitPage));
+        Routing.RegisterRoute(nameof(CareLogPage), typeof(CareLogPage));
     }
 }
