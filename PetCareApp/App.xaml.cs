@@ -13,6 +13,7 @@ public partial class App : Application
     public static Repositories.CareLogRepository LogRepo { get; private set; } = null!;
     public static Repositories.VetVisitRepository VetRepo { get; private set; } = null!;
     public static Services.TaskService TaskService { get; private set; } = null!;
+    public static Services.VetVisitService VetService { get; private set; } = null!;
     public App()
     {
         InitializeComponent();
@@ -30,6 +31,7 @@ public partial class App : Application
         PetRepo = new Repositories.PetRepository();
         TaskRepo = new Repositories.CareTaskRepository();
         LogRepo = new Repositories.CareLogRepository();
+        VetService = new Services.VetVisitService();
         VetRepo = new Repositories.VetVisitRepository();
         TaskService = new Services.TaskService();
     }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetCareApp.Views.VetVisitPage"
+             Title="Vet Visits">
+
+    <VerticalStackLayout Padding="12" Spacing="10">
+
+        <Label x:Name="headerLabel"
+               Text="Vet Visits"
+               FontSize="20"
+               FontAttributes="Bold" />
+
+        <Frame Padding="10">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Visit Date" />
+                <DatePicker x:Name="visitDatePicker" />
+
+                <Label Text="Notes" />
+                <Editor x:Name="notesEntry" AutoSize="TextChanges" HeightRequest="80" />
+
+                <Label Text="Tasks done in this visit" />
+                <VerticalStackLayout x:Name="tasksChecklist" Spacing="6" />
+
+                <Button Text="Save Visit"
+                        Clicked="OnSaveVisitClicked" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <Label Text="Previous visits"
+               FontAttributes="Bold" />
+
+        <ListView x:Name="visitListView" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}"
+                              Detail="{Binding Notes}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
