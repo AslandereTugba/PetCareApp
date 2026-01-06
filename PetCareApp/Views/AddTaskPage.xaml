@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetCareApp.Views.AddTaskPage"
+             Title="Add Task">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="New Task"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label Text="Task Name:" />
+        <Entry x:Name="nameEntry" Placeholder="e.g., Rabies Vaccine, Walk" />
+
+        <Label Text="Frequency (days):" />
+        <Entry x:Name="frequencyEntry" Keyboard="Numeric" Placeholder="e.g., 7" />
+
+        <Label Text="First Due Date:" />
+        <DatePicker x:Name="dueDatePicker" />
+
+        <Button Text="Save Task"
+                Margin="0,10,0,0"
+                Clicked="OnSaveTaskClicked" />
+    </VerticalStackLayout>
+</ContentPage>

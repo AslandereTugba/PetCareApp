@@ -12,17 +12,15 @@ public partial class App : Application
     public static Repositories.CareTaskRepository TaskRepo { get; private set; } = null!;
     public static Repositories.CareLogRepository LogRepo { get; private set; } = null!;
     public static Repositories.VetVisitRepository VetRepo { get; private set; } = null!;
+    public static Services.TaskService TaskService { get; private set; } = null!;
     public App()
     {
         InitializeComponent();
 
-        // Initialize SQLite for all platforms (needed especially for iOS)
         Batteries_V2.Init();
 
-        // Determine database file path
         string dbPath = Path.Combine(FileSystem.AppDataDirectory, "petcare.db3");
 
-        // Create SQLite connection and tables
         Db = new SQLiteConnection(dbPath);
         Db.CreateTable<Models.Pet>();
         Db.CreateTable<Models.CareTask>();
@@ -33,6 +31,7 @@ public partial class App : Application
         TaskRepo = new Repositories.CareTaskRepository();
         LogRepo = new Repositories.CareLogRepository();
         VetRepo = new Repositories.VetVisitRepository();
+        TaskService = new Services.TaskService();
     }
 
     protected override Window CreateWindow(IActivationState? activationState)

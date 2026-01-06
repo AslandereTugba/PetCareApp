@@ -69,6 +69,12 @@
 	  <Compile Update="Views\AddPetPage.xaml.cs">
 	    <DependentUpon>AddPetPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AddTaskPage.xaml.cs">
+	    <DependentUpon>AddTaskPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\PetDetailPage.xaml.cs">
+	    <DependentUpon>PetDetailPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PetListPage.xaml.cs">
 	    <DependentUpon>PetListPage.xaml</DependentUpon>
 	  </Compile>
@@ -76,6 +82,12 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\AddPetPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddTaskPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PetDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PetListPage.xaml">

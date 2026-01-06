@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetCareApp.Views.PetDetailPage"
+             Title="Pet Details">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Task"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="OnAddTaskClicked" />
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label x:Name="petNameLabel"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label x:Name="petDetailsLabel"
+               FontSize="14"
+               HorizontalOptions="Center" />
+
+        <ListView x:Name="taskListView" SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="6" ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                <Label Text="{Binding NextDue, StringFormat='Due: {0:d}'}"
+                                       FontSize="12" />
+                            </VerticalStackLayout>
+
+                            <Button Grid.Column="1"
+                                    Text="Done"
+                                    Clicked="OnTaskDoneClicked"
+                                    CommandParameter="{Binding .}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -8,15 +8,17 @@
     Title="PetCareApp">
 
     <FlyoutItem Title="Home">
-        <ShellContent Title="Dashboard"
-                      ContentTemplate="{DataTemplate local:MainPage}"
-                      Route="main" />
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="main" />
     </FlyoutItem>
 
     <FlyoutItem Title="Pets">
-        <ShellContent Title="Pets"
-                      ContentTemplate="{DataTemplate views:PetListPage}"
-                      Route="pets" />
+        <ShellContent
+            Title="Pets"
+            ContentTemplate="{DataTemplate views:PetListPage}"
+            Route="pets" />
     </FlyoutItem>
 
 </Shell>

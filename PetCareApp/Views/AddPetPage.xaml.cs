@@ -8,30 +8,27 @@ public partial class AddPetPage : ContentPage
     {
         InitializeComponent();
         birthDatePicker.Date = DateTime.Today;
-        birthDatePicker.MaximumDate = DateTime.Today; // ? ekle
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        string name = nameEntry.Text?.Trim() ?? string.Empty;
-        string type = typeEntry.Text?.Trim() ?? string.Empty;
-        DateTime birthDate = birthDatePicker.Date;
+        string name = nameEntry.Text?.Trim() ?? "";
+        string type = typeEntry.Text?.Trim() ?? "";
 
-        if (string.IsNullOrEmpty(name))
+        if (string.IsNullOrWhiteSpace(name))
         {
             await DisplayAlert("Validation", "Please enter a name for your pet.", "OK");
             return;
         }
 
-        Pet newPet = new Pet
+        var newPet = new Pet
         {
             Name = name,
             Type = type,
-            BirthDate = birthDate
+            BirthDate = birthDatePicker.Date
         };
 
         App.PetRepo.SavePet(newPet);
-
         await Shell.Current.GoToAsync("..");
     }
 }

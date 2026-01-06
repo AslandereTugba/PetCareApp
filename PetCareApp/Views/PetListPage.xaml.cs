@@ -26,11 +26,12 @@ public partial class PetListPage : ContentPage
         await Shell.Current.GoToAsync(nameof(AddPetPage));
     }
 
-    private void OnPetSelected(object sender, SelectedItemChangedEventArgs e) // ? async yok
+    private async void OnPetSelected(object sender, SelectedItemChangedEventArgs e)
     {
         if (e.SelectedItem is Pet selectedPet)
         {
             petListView.SelectedItem = null;
+            await Shell.Current.GoToAsync($"{nameof(PetDetailPage)}?petId={selectedPet.Id}");
         }
     }
 }
