@@ -23,7 +23,8 @@ public class TaskService
             PetId = task.PetId,
             TaskId = task.Id,
             Date = doneDate,
-            Notes = ""  
+            Notes = "",
+            TaskNameSnapshot = task.Name
         };
         App.LogRepo.AddLog(log);
     }

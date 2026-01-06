@@ -65,4 +65,26 @@ public partial class PetDetailPage : ContentPage
     {
         await Shell.Current.GoToAsync($"{nameof(CareLogPage)}?petId={PetId}");
     }
+    private async void OnEditTaskClicked(object sender, EventArgs e)
+    {
+        if (sender is MenuItem mi && mi.CommandParameter is CareTask task)
+        {
+            await Shell.Current.GoToAsync($"{nameof(AddTaskPage)}?petId={PetId}&taskId={task.Id}");
+        }
+    }
+
+    private async void OnDeleteTaskClicked(object sender, EventArgs e)
+    {
+        if (sender is MenuItem mi && mi.CommandParameter is CareTask task)
+        {
+            bool ok = await DisplayAlert("Sil", $"{task.Name} silinsin mi?", "Evet", "Vazgeç");
+            if (!ok) return;
+
+            var logs = App.LogRepo.GetLogsByPet(PetId).Where(l => l.TaskId == task.Id).ToList();
+            foreach (var l in logs) App.LogRepo.DeleteLog(l);
+
+            App.TaskRepo.DeleteTask(task);
+            LoadPetAndTasks();
+        }
+    }
 }

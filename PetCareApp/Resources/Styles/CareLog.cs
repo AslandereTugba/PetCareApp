@@ -19,6 +19,7 @@ public class CareLog
     [Indexed]
     public int TaskId { get; set; }         
 
-    public DateTime Date { get; set; }      
-    public string Notes { get; set; } = string.Empty; 
+    public DateTime Date { get; set; }
+    public string Notes { get; set; } = string.Empty;
+    public string TaskNameSnapshot { get; set; } = string.Empty;
 }

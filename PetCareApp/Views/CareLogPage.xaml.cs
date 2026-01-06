@@ -35,8 +35,14 @@ public partial class CareLogPage : ContentPage
         var displayList = new List<KeyValuePair<string, string>>();
         foreach (var log in logs)
         {
-            string taskName = taskNameById.ContainsKey(log.TaskId) ? taskNameById[log.TaskId] : $"Task {log.TaskId}";
-            string dateStr = log.Date.ToString("g"); 
+            string taskName;
+
+            if (!string.IsNullOrWhiteSpace(log.TaskNameSnapshot))
+                taskName = log.TaskNameSnapshot;
+            else
+                taskName = taskNameById.ContainsKey(log.TaskId) ? taskNameById[log.TaskId] : $"Task {log.TaskId}";
+
+            string dateStr = log.Date.ToString("g");
             displayList.Add(new KeyValuePair<string, string>(taskName, dateStr));
         }
 
