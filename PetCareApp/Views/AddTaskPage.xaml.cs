@@ -1,5 +1,4 @@
 using PetCareApp.Models;
-using UIKit;
 
 namespace PetCareApp.Views;
 
