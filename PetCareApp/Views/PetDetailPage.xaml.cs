@@ -56,4 +56,13 @@ public partial class PetDetailPage : ContentPage
             LoadPetAndTasks();
         }
     }
+    private async void OnVetVisitsClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"{nameof(VetVisitPage)}?petId={PetId}");
+    }
+
+    private async void OnViewLogsClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"{nameof(CareLogPage)}?petId={PetId}");
+    }
 }

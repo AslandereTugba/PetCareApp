@@ -5,12 +5,11 @@
              Title="Pet Details">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Task"
-                     Order="Primary"
-                     Priority="0"
-                     Clicked="OnAddTaskClicked" />
+        <ToolbarItem Text="Add Task" Order="Primary" Priority="0" Clicked="OnAddTaskClicked" />
+        <ToolbarItem Text="Vet" Order="Secondary" Priority="1" Clicked="OnVetVisitsClicked" />
+        <ToolbarItem Text="Logs" Order="Secondary" Priority="2" Clicked="OnViewLogsClicked" />
     </ContentPage.ToolbarItems>
-
+    
     <VerticalStackLayout Padding="10" Spacing="10">
         <Label x:Name="petNameLabel"
                FontSize="24"
