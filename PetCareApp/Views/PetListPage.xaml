@@ -22,8 +22,17 @@
                   SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}"
-                              Detail="{Binding Type}" />
+                    <TextCell Text="{Binding Name}" Detail="{Binding Type}">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Edit"
+                                      Clicked="OnEditPetClicked"
+                                      CommandParameter="{Binding .}" />
+                            <MenuItem Text="Delete"
+                                      IsDestructive="True"
+                                      Clicked="OnDeletePetClicked"
+                                      CommandParameter="{Binding .}" />
+                        </TextCell.ContextActions>
+                    </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
