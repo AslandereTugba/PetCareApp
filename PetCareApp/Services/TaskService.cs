@@ -37,7 +37,7 @@ public class TaskService
         return allTasks
             .Where(t =>
                 t.NextDue.Date < today &&
-                (t.LastDone == null || t.LastDone.Value.Date != today) // ✅ bugün done olduysa gösterme
+                (t.LastDone == null || t.LastDone.Value.Date != today) 
             )
             .ToList();
     }
@@ -50,7 +50,7 @@ public class TaskService
         return allTasks
             .Where(t =>
                 t.NextDue.Date == today &&
-                (t.LastDone == null || t.LastDone.Value.Date != today) // ✅ bugün done olduysa gösterme
+                (t.LastDone == null || t.LastDone.Value.Date != today) 
             )
             .ToList();
     }
