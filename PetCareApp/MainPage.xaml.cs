@@ -47,9 +47,10 @@ public partial class MainPage : ContentPage
                     var pet = App.PetRepo.GetPet(l.PetId);
                     string petName = pet != null ? pet.Name : $"Pet {l.PetId}";
 
-                    string taskName = taskNameById.ContainsKey(l.TaskId)
-                        ? taskNameById[l.TaskId]
-                        : $"Task {l.TaskId}";
+                    string taskName = !string.IsNullOrWhiteSpace(l.TaskNameSnapshot)
+                        ? l.TaskNameSnapshot
+                        : (taskNameById.ContainsKey(l.TaskId) ? taskNameById[l.TaskId] : $"Task {l.TaskId}");
+
 
                     return TaskDisplayItem.Completed($"{petName}: {taskName} (Done {l.Date:t})");
                 })

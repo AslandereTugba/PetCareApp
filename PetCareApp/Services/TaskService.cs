@@ -15,7 +15,7 @@ public class TaskService
         }
         catch
         {
-            task.NextDue = doneDate; 
+            task.NextDue = doneDate;
         }
         App.TaskRepo.SaveTask(task);
         CareLog log = new CareLog
@@ -37,7 +37,7 @@ public class TaskService
         return allTasks
             .Where(t =>
                 t.NextDue.Date < today &&
-                (t.LastDone == null || t.LastDone.Value.Date != today) 
+                (t.LastDone == null || t.LastDone.Value.Date != today)
             )
             .ToList();
     }
@@ -50,7 +50,8 @@ public class TaskService
         return allTasks
             .Where(t =>
                 t.NextDue.Date == today &&
-                (t.LastDone == null || t.LastDone.Value.Date != today) 
+                (t.LastDone == null || t.LastDone.Value.Date != today)
             )
             .ToList();
     }
+}
