@@ -77,11 +77,6 @@ Navigation uses **Shell routing** and query parameters (e.g., `?petId=3`).
 5. Check **Home** dashboard for today/overdue/completed tasks
 6. Open **Logs** to see history or **Vet** to record vet visits
 
-## Future improvements (optional)
-- Pet icons (dog/cat) in the list
-- Simple search/filter for pets/tasks
-- Better UI layout (Grid + CollectionView)
-- Basic statistics (e.g., tasks completed this week)
 
 ---
 Author: *Tuğba Aslandere*
