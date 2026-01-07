@@ -33,13 +33,24 @@ public class TaskService
     {
         var allTasks = App.TaskRepo.GetAllTasks();
         DateTime today = DateTime.Today;
-        return allTasks.Where(t => t.NextDue.Date < today).ToList();
+
+        return allTasks
+            .Where(t =>
+                t.NextDue.Date < today &&
+                (t.LastDone == null || t.LastDone.Value.Date != today) // ✅ bugün done olduysa gösterme
+            )
+            .ToList();
     }
 
     public List<CareTask> GetTodayTasks()
     {
         var allTasks = App.TaskRepo.GetAllTasks();
         DateTime today = DateTime.Today;
-        return allTasks.Where(t => t.NextDue.Date == today).ToList();
+
+        return allTasks
+            .Where(t =>
+                t.NextDue.Date == today &&
+                (t.LastDone == null || t.LastDone.Value.Date != today) // ✅ bugün done olduysa gösterme
+            )
+            .ToList();
     }
-}

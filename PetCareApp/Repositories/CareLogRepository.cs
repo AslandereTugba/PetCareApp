@@ -19,7 +19,6 @@ public class CareLogRepository
 
     public List<CareLog> GetLogsByPet(int petId)
     {
-        // Retrieve all care logs for the given pet
         return db.Table<CareLog>()
                  .Where(log => log.PetId == petId)
                  .ToList();
@@ -28,6 +27,17 @@ public class CareLogRepository
     public int AddLog(CareLog log)
     {
         return db.Insert(log);
+    }
+
+    public List<CareLog> GetLogsForDay(DateTime day)
+    {
+        var start = day.Date;
+        var end = start.AddDays(1);
+
+        return db.Table<CareLog>()
+                 .Where(l => l.Date >= start && l.Date < end)
+                 .OrderByDescending(l => l.Date)
+                 .ToList();
     }
 
     public int DeleteLog(CareLog log)

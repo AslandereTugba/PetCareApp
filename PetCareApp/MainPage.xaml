@@ -3,32 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PetCareApp.MainPage"
              Title="Tasks Dashboard">
+
     <ListView x:Name="tasksListView"
               IsGroupingEnabled="True"
-              Margin="10">
+              Margin="10"
+              SeparatorVisibility="Default">
+
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
                 <ViewCell>
                     <Label Text="{Binding Title}"
                            FontAttributes="Bold"
                            BackgroundColor="#eeeeee"
-                           Padding="5" />
+                           Padding="8" />
                 </ViewCell>
             </DataTemplate>
         </ListView.GroupHeaderTemplate>
+
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="5">
-                        <Label Text="{Binding DisplayText}" VerticalOptions="Center" />
-                        <Button Text="Done"
+                    <Grid Padding="6" ColumnDefinitions="*,Auto">
+                        <Label Text="{Binding DisplayText}"
+                               VerticalOptions="Center" />
+
+                        <Button Grid.Column="1"
+                                Text="Done"
                                 BackgroundColor="LightGreen"
-                                HorizontalOptions="EndAndExpand"
+                                IsVisible="{Binding ShowDone}"
                                 Clicked="OnTaskDoneClicked"
                                 CommandParameter="{Binding Task}" />
-                    </StackLayout>
+                    </Grid>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
+
     </ListView>
 </ContentPage>
